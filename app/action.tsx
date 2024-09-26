@@ -5,7 +5,6 @@ interface ActionState{
 }
 
 export default async function login(preState:ActionState, formData:FormData) {
-  console.log(preState, formData);
   const password = formData.get("password");
   if(password==='12345'){
     return (
