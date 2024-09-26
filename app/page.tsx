@@ -2,15 +2,29 @@
 
 import FormInput from "@/components/form-input";
 import { useFormState } from "react-dom";
-import login from "./action";
+import { formLogin} from "./action";
 import { EnvelopeIcon,  UserIcon, KeyIcon } from "@heroicons/react/24/solid";
 import Button from "@/components/button";
 import { CheckBadgeIcon } from "@heroicons/react/24/outline";
 import { FireIcon } from "@heroicons/react/24/solid";
 import ToastMessage from "@/components/toast-message";
 
+interface ActionState{
+  result: boolean;
+  password:string[];
+  email:string[];
+  userName:string[];
+}
+
+const initialState: ActionState = { 
+  result: false,
+  password:[],
+  email:[],
+  userName:[],
+};
+
 export default function Home() {
-  const [state, dispatch] = useFormState(login, null)
+  const [state,dispatch]= useFormState(formLogin,initialState);
   return (
     <div className="flex flex-col gap-10 py-8 px-40">
         <div className="flex flex-col gap-2  items-center *:font-medium">

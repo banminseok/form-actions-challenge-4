@@ -1,11 +1,15 @@
 "use server";
 
 interface ActionState{
-  token : boolean
+  result: boolean;
+  password:string[];
+  email:string[];
+  userName:string[];
 }
 
-export default async function login(preState:ActionState, formData:FormData) {
-  const password = formData.get("password");
+export async function formLogin(preState:ActionState, formData?:FormData)
+:Promise<ActionState> {
+  const password = formData?.get("password");
   if(password==='12345'){
     return (
       {
