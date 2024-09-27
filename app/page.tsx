@@ -1,6 +1,6 @@
 "use client"
 
-import FormInput from "@/components/form-input";
+import Input from "@/components/input";
 import { useFormState } from "react-dom";
 import { formLogin} from "./action";
 import { EnvelopeIcon,  UserIcon, KeyIcon } from "@heroicons/react/24/solid";
@@ -31,21 +31,21 @@ export default function Home() {
           <FireIcon className="size-12 text-red-500" />
         </div>
         <form action={dispatch} className="flex flex-col gap-3">
-          <FormInput name="email"
+          <Input name="email"
             type="email"
             placeholder="Email"
             required
             icon={<EnvelopeIcon className="size-4" />}
             errors={state?.email}
             />
-          <FormInput name="user_name"
+          <Input name="user_name"
             type="text"
             placeholder="Username"
             required
             icon={<UserIcon className="size-4"/>}
             errors={state?.userName}
             />
-          <FormInput name="password"
+          <Input name="password"
             type="password"
             placeholder="Password"
             required
